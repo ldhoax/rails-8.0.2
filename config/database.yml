@@ -81,9 +81,11 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: api_production
-    username: api
-    password: <%= ENV["API_DATABASE_PASSWORD"] %>
+    host: <%= ENV["DB_HOST"] %>
+    database: <%= ENV["DB_NAME"] %>
+    username: <%= ENV["DB_USERNAME"] %>
+    password: <%= ENV["DB_PASSWORD"] %>
+    port: <%= ENV["DB_PORT"] %>
   cache:
     <<: *primary_production
     database: api_production_cache
